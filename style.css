@@ -1,0 +1,288 @@
+/* RESETEO GLOBAL DE ESTILOS */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Ocupa toda la altura de la ventana */
+  margin: 0;
+}
+
+/* ESTILOS PERSONALIZADOS PARA EL SCROLL */
+::-webkit-scrollbar {
+  background-color: transparent;
+  width: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background-color: black; /* Color de la barra de desplazamiento */
+}
+
+/* HEADER: Sección superior fija que incluye la barra de navegación */
+header {
+  width: 100%; /* Ocupa todo el ancho */
+  background-color: black; /* Fondo negro */
+
+  display: flex;
+  justify-content: space-between; /* Espaciado entre elementos del header */
+  align-items: center;
+
+  padding: 20px 40px; /* Espaciado interno */
+  color: aliceblue; /* Color claro para el texto */
+  position: fixed; /* Permanece fijo al desplazarse */
+  top: 0;
+  z-index: 10; /* Aparece por encima de otros elementos */
+}
+
+/* TÍTULO PRINCIPAL EN EL HEADER */
+header h1 {
+  color: #fff; /* Texto blanco */
+  font-size: 28px; /* Tamaño del texto */
+  font-weight: bold; /* Negrita */
+}
+
+/* LISTA DE ÍCONOS EN EL LADO DERECHO DEL HEADER */
+header ul:nth-child(2) {
+  list-style: none; /* Sin viñetas */
+  display: flex; /* Elementos en línea */
+  gap: 1pc; /* Espaciado entre los íconos */
+}
+
+/* LISTA PRINCIPAL EN EL LADO IZQUIERDO DEL HEADER */
+header ul:nth-child(1) {
+  list-style: none;
+  display: flex;
+}
+
+/* CONTENEDOR DEL TÍTULO Y LA NAVBAR */
+header div:nth-child(1) {
+  display: flex;
+  align-items: center;
+  gap: 2pc; /* Espaciado entre el título y el menú */
+}
+
+/* ÍCONO HAMBURGUESA VISIBLE EN PANTALLAS PEQUEÑAS */
+header .change2 {
+  display: none; /* Oculto por defecto */
+}
+
+/* PADDING PARA LOS ÍCONOS DEL HEADER */
+header img:nth-child(1) {
+  padding: 0.4pc;
+}
+
+/* NAVBAR: Menú principal de navegación */
+.navbar {
+  list-style: none; /* Sin viñetas */
+  display: flex; /* Los elementos aparecen en línea */
+  justify-content: center; /* Centra horizontalmente las secciones */
+  gap: 40px; /* Espaciado entre las secciones */
+  padding: 0;
+  margin: 0;
+}
+
+/* OPCIONES DEL MENÚ PRINCIPAL */
+.navbar > .menu-item {
+  position: relative; /* Necesario para posicionar submenús */
+  color: #fff; /* Texto blanco */
+  font-size: 16px; /* Tamaño del texto */
+  font-weight: bold; /* Negrita */
+  cursor: pointer; /* Cambia el cursor al pasar el ratón */
+}
+
+/* CAMBIO DE COLOR AL PASAR EL CURSOR SOBRE LAS OPCIONES PRINCIPALES */
+.navbar > .menu-item:hover {
+  color: #f0c040; /* Cambia a amarillo */
+}
+
+/* SUBMENÚ: Opciones desplegables dentro del menú principal */
+.navbar > .menu-item > .submenu {
+  display: none; /* Ocultos por defecto */
+  position: absolute;
+  top: 100%; /* Aparece debajo del menú principal */
+  left: 0;
+  list-style: none;
+  background-color: #333; /* Fondo gris oscuro */
+  border-radius: 5px; /* Bordes redondeados */
+  padding: 10px 0; /* Espaciado interno */
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Sombra para resaltar */
+  z-index: 10; /* Prioridad visual */
+  text-align: left; /* Texto alineado a la izquierda */
+}
+
+/* MOSTRAR EL SUBMENÚ AL PASAR EL CURSOR */
+.navbar > .menu-item:hover > .submenu {
+  display: block;
+}
+
+/* ESTILO DE LOS ELEMENTOS DENTRO DEL SUBMENÚ */
+.navbar > .menu-item > .submenu > li {
+  padding: 8px 12px; /* Espaciado interno */
+  color: #fff; /* Texto blanco */
+  cursor: pointer; /* Interactivo */
+}
+
+/* CAMBIO DE COLOR DE FONDO AL PASAR EL CURSOR SOBRE LAS OPCIONES DEL SUBMENÚ */
+.navbar > .menu-item > .submenu > li:hover {
+  background-color: #444; /* Fondo gris más claro */
+}
+
+/* CONTENEDOR DE PRODUCTOS: Sección principal que muestra los productos */
+#container_products {
+  flex: 1; /* Permite que este contenido se expanda ocupando el espacio restante */
+  display: flex;
+  flex-wrap: wrap; /* Ajusta los productos en varias filas */
+  width: 100%;
+  justify-content: center; /* Centra horizontalmente los productos */
+  align-items: flex-start; /* Alinea los productos al inicio */
+  gap: 1pc; /* Espaciado entre productos */
+  padding-top: 6pc; /* Espaciado superior para evitar superposición con el header */
+}
+
+/* TARJETAS INDIVIDUALES PARA LOS PRODUCTOS */
+.Card {
+  width: 213px; /* Ancho fijo */
+  height: 460px; /* Altura fija */
+  align-content: center;
+  margin: 0 1pc; /* Espaciado entre tarjetas */
+  padding: 10px;
+}
+
+/* EFECTO AL PASAR EL CURSOR SOBRE UNA TARJETA */
+.Card:hover {
+  box-shadow: 0 0 3px 0 black; /* Sombra para resaltar */
+}
+
+/* TÍTULO DEL PRODUCTO DENTRO DE LA TARJETA */
+.Card h2 {
+  font-size: clamp(0.1rem, 50px, 1.3rem);
+  z-index: 1;
+}
+
+/* DESCRIPCIÓN DEL PRODUCTO DENTRO DE LA TARJETA */
+.Card p {
+  font-size: clamp(0.1rem, 15px, 1rem);
+  z-index: 1;
+}
+
+/* IMÁGENES DE LOS PRODUCTOS */
+.Card img {
+  width: 100%; /* Ancho completo */
+  height: 70%; /* Altura proporcional */
+  object-fit: contain; /* Ajusta la imagen manteniendo las proporciones */
+}
+
+/* CONTENEDOR DE LA IMAGEN DENTRO DE LAS TARJETAS */
+.img--container {
+  height: 60%; /* Altura específica para las imágenes */
+}
+
+/* MODAL: Ventana emergente para detalles del producto */
+#modal {
+  position: fixed;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+  background-color: rgba(110, 110, 110, 0.4); /* Fondo semitransparente */
+  width: 100%;
+  height: 100vh;
+  z-index: 1; /* Prioridad visual */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  display: none; /* Oculto por defecto */
+}
+
+/* CONTENEDOR DEL MODAL */
+#modal .container__modal {
+  background-color: white;
+  max-width: 675px;
+  height: auto;
+  border-radius: 20px; /* Bordes redondeados */
+  position: relative;
+  display: flex;
+  gap: 2pc;
+  padding: 1pc;
+}
+
+/* IMAGEN DENTRO DEL MODAL */
+#modal .container__modal--img img {
+  width: 100%;
+  height: 100%;
+  max-height: 300px; /* Altura máxima para evitar deformación */
+  object-fit: contain;
+}
+
+/* TEXTO Y DETALLES DENTRO DEL MODAL */
+#modal .container__modal--txt {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1pc;
+}
+
+/* FORMULARIO DE CONTACTO */
+.formulario {
+  width: 100%; /* Ocupa todo el ancho de la página */
+  padding: 20px;
+  background-color: #f9f9f9; /* Fondo claro para diferenciar */
+  text-align: center;
+  margin-top: 2rem; /* Espaciado superior */
+}
+
+#contact-form {
+  display: flex;
+  flex-direction: column; /* Alinea verticalmente los elementos */
+  align-items: center; /* Centra los elementos */
+  gap: 15px; /* Espaciado entre los campos */
+}
+
+#contact-form input, #contact-form button {
+  width: 80%; /* Ajusta el ancho de los campos de texto */
+  max-width: 400px; /* Ancho máximo para pantallas grandes */
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+#contact-form button {
+  background-color: black; /* Fondo negro */
+  color: white; /* Texto blanco */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#contact-form button:hover {
+  background-color: #555; /* Cambia el color al pasar el cursor */
+}
+
+/* PIE DE PÁGINA */
+.footer {
+  width: 100%; /* Ocupa todo el ancho de la página */
+  background-color: #333; /* Fondo gris oscuro */
+  color: white; /* Texto blanco */
+  text-align: center; /* Texto centrado */
+  padding: 15px 0; /* Espaciado interno */
+  margin-top: auto; /* Asegura que el footer esté en la parte inferior */
+  position: relative; /* Para mantener su posición correcta */
+}
+
+/* DISEÑO RESPONSIVO PARA PANTALLAS PEQUEÑAS */
+@media screen and (max-width: 769px) {
+  header ul:nth-child(2) {
+    display: none; /* Oculta los íconos */
+  }
+  header .change {
+    display: none; /* Oculta el menú de usuario */
+  }
+  header .change2 {
+    display: flex; /* Muestra el ícono hamburguesa */
+  }
+}
